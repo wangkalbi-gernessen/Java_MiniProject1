@@ -7,12 +7,25 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Question {
+/**
+ * @author Kazunobu Someya
+ */
+public class Operator {
 
-    public Question() throws FileNotFoundException {
+    /**
+     * Constructor (default)
+     * @throws FileNotFoundException
+     */
+    public Operator() throws FileNotFoundException {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     * Read cities on cities.txt
+     */
     public static String readText() throws FileNotFoundException {
         try{
             File obj = new File("cities.txt") ;
@@ -20,7 +33,7 @@ public class Question {
             // Regarding ArrayList and Random I referred to following URL.
             // https://stackoverflow.com/questions/12028205/randomly-choose-a-word-from-a-text-file
             List<String> cities = new ArrayList<>();
-            while(scan.hasNextLine()) {
+            while (scan.hasNextLine()) {
                 String data = scan.nextLine();
                 cities.add(data);
             }
@@ -34,9 +47,13 @@ public class Question {
         return null;
     }
 
+    /**
+     * Operate hangman game here
+     * @throws FileNotFoundException
+     */
     public static void operateGame() throws FileNotFoundException {
-        String answer = readText();
-        Checking letter = new Checking(answer);
-        letter.identical(answer);
+        String city = readText();
+        Checking letter = new Checking(city);
+        letter.identical(letter.getCity());
     }
 }
