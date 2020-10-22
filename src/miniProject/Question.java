@@ -34,18 +34,9 @@ public class Question {
         return null;
     }
 
-    // first input
-    public static void inputChar() throws FileNotFoundException {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Here's the question.");
+    public static void operateGame() throws FileNotFoundException {
         String answer = readText();
-        for(int i = 0; i <= answer.length() - 1; i++){
-            System.out.print("_");
-        }
-        System.out.println("");
-        System.out.print("Guess a letter: ");
-        char alphabet = in.next().charAt(0);
-        Checking letter = new Checking(alphabet, answer);
-        letter.identical(letter.getLetter(alphabet), letter.getWord(answer));
+        Checking letter = new Checking(answer);
+        letter.identical(answer);
     }
 }

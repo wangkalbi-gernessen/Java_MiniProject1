@@ -9,6 +9,6 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) throws FileNotFoundException {
         Question r1 = new Question();
-        r1.inputChar();
+        r1.operateGame();
     }
 }
